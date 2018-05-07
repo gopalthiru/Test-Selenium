@@ -51,7 +51,7 @@ namespace Structura.GuiTests.SeleniumHelpers
                         driver.Manage().Window.Maximize();
                         break;
                     case DriverToUse.Chrome:
-                        driver = new ChromeDriver();
+                        driver = new ChromeDriver(@"/Users/gthirumurthy/");
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
