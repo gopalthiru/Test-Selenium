@@ -1,24 +1,31 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using Tests.SeleniumHelpers;
+using System;
 
 namespace Tests.PageObjects
 {
-    public class HomePage
+    public class QALoginPage
     {
         private readonly IWebDriver _driver;
 
-        public HomePage(IWebDriver driver)
+        public QALoginPage(IWebDriver driver)
         {
             _driver = driver;
             PageFactory.InitElements(_driver, this);
         }
 
-        [FindsBy(How = How.LinkText, Using = "Products")]
-        public IWebElement ProductSection { get; set; }
+        [FindsBy(How = How.Id, Using = "user_email")]
+        public IWebElement UserEmailEntry { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = "Vacuum cleaners")]
-        public IWebElement VaccumCleaners { get; set; }
+        [FindsBy(How = How.Id, Using = "user_password")]
+        public IWebElement UserPasswordEntry { get; set; }
+
+        [FindsBy(How = How.Id, Using = "user_remember_me")]
+        public IWebElement UserRememberMe { get; set; }
+
+        [FindsBy(How = How.Id, Using = "btn-signin")]
+        public IWebElement UserSubmitButton { get; set; }
 
         //[FindsBy(How = How.Id, Using = "nav__link primary-nav__link js-dropdown-link js-drawer-link primary-nav__accordion-link expanded")]
         //public IWebElement ProductSection { get; set; }
@@ -36,33 +43,36 @@ namespace Tests.PageObjects
             }
         }
 
-        public void OpenVaccumCleaners(string baseUrl)
+        public void QALoginAttempt(string baseUrl)
         {
-            _driver.Navigate().GoToUrl(baseUrl);
-            ProductSection.Click();
-            ProductSection.Click();
-            //// sending a single quote is not possible with the Chrome Driver, it sends two single quotes!
-            //ProductSection.SendKeys("admin'--");
 
-            VaccumCleaners.Click();
-            //VaccumCleaners.SendKeys("blah");
+            _driver.Navigate().GoToUrl(baseUrl);
+            UserEmailEntry.Click();
+            UserEmailEntry.Clear();
+            UserEmailEntry.SendKeys("gopalt@ymail.com");
+            UserPasswordEntry.Click();
+            UserPasswordEntry.Clear();
+            UserPasswordEntry.SendKeys("test123");
+
+            UserRememberMe.Click();
+            UserSubmitButton.Click();
 
             //LoginButton.Click();
         }
 
-        public void LoginAsNobody(string baseUrl)
-        {
-            _driver.Navigate().GoToUrl(baseUrl);
-            ProductSection.Click();
-            ProductSection.Clear();
-            // sending a single quote is not possible with the Chrome Driver, it sends two single quotes!
-            ProductSection.SendKeys("nobody");
+        //public void LoginAsNobody(string baseUrl)
+        //{
+        //    _driver.Navigate().GoToUrl(baseUrl);
+        //    UserEmailEntry.Click();
+        //    UserEmailEntry.Clear();
+        //    // sending a single quote is not possible with the Chrome Driver, it sends two single quotes!
+        //    UserEmailEntry.SendKeys("nobody");
 
-            VaccumCleaners.Clear();
-            VaccumCleaners.SendKeys("blah");
+        //    UserRememberMe.Clear();
+        //    UserRememberMe.SendKeys("blah");
 
-            LoginButton.Click();
-        }
+        //    LoginButton.Click();
+        //}
     }
 }
 

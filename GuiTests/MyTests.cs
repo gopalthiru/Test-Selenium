@@ -13,7 +13,7 @@ using Tests.PageObjects;
 namespace Structura.GuiTests
 {
     [TestFixture]
-    public class AltoroMutualTests
+    public class MyTests
     {
         private IWebDriver _driver;
         private StringBuilder _verificationErrors;
@@ -42,52 +42,64 @@ namespace Structura.GuiTests
             _verificationErrors.ToString().Should().BeEmpty("No verification errors are expected.");
         }
 
+
         [Test]
         public void LoginWithValidCredentialsShouldSucceed()
         {
             // Arrange
             // Act
-            new LoginPage(_driver).LoginAsAdmin(_baseUrl);
+            new QALoginPage(_driver).QALoginAttempt(_baseUrl);
 
-            // Assert
-            new MainPage(_driver).GetAccountButton.Displayed.Should().BeTrue();
+            //// Assert
+            //new MainPage(_driver).GetAccountButton.Displayed.Should().BeTrue();
         }
 
-        [Test]
-        public void LoginWithInvalidCredentialsShouldFail()
-        {
-            // Arrange
-            // Act
-            new LoginPage(_driver).LoginAsNobody(_baseUrl);
+        //[Test]
+        //public void OpenHomePageVaccumCleaners()
+        //{
+        //    // Arrange
+        //    // Act
+        //    new QALoginPage(_driver).OpenVaccumCleaners(_baseUrl);
 
-            // Assert
-            Action a = () =>
-            {
-                var displayed = new MainPage(_driver).GetAccountButton.Displayed; // throws exception if not found
-            };
-            a.ShouldThrow<NoSuchElementException>().WithMessage("Could not find element by: By.Id: btnGetAccount");
-        }
+        //    // Assert
+        //    //new MainPage(_driver).GetAccountButton.Displayed.Should().BeTrue();
+        //}
+
+        //[Test]
+        //public void LoginWithInvalidCredentialsShouldFail()
+        //{
+        //    // Arrange
+        //    // Act
+        //    new LoginPage(_driver).LoginAsNobody(_baseUrl);
+
+        //    // Assert
+        //    Action a = () =>
+        //    {
+        //        var displayed = new MainPage(_driver).GetAccountButton.Displayed; // throws exception if not found
+        //    };
+        //    a.ShouldThrow<NoSuchElementException>().WithMessage("Could not find element by: By.Id: btnGetAccount");
+        //}
         
-        [Test]
-        public void TransferAmountShouldBeAccepted()
-        {
-            // Arrange
-            new LoginPage(_driver).LoginAsAdmin(_baseUrl);
-            var transferFundsPage = new TransferFundsPage(_driver);
-            new MainPage(_driver).NavigateToTransferFunds();
+        //[Test]
+        //public void TransferAmountShouldBeAccepted()
+        //{
+        //    // Arrange
+        //    new LoginPage(_driver).LoginAsAdmin(_baseUrl);
+        //    var transferFundsPage = new TransferFundsPage(_driver);
+        //    new MainPage(_driver).NavigateToTransferFunds();
 
-            // Act
-            transferFundsPage.Transfer99Dollar();
+        //    // Act
+        //    transferFundsPage.Transfer99Dollar();
 
-            // Assert
+        //    // Assert
 
-            // Need to wait until the results are displayed on the web page
-            Thread.Sleep(1000);
+        //    // Need to wait until the results are displayed on the web page
+        //    Thread.Sleep(1000);
             
-            transferFundsPage.TranferMoneyMessage.Text.StartsWith(
-                "$99 was successfully transferred from Account 20 into Account 21"
-                , true, CultureInfo.InvariantCulture).Should().BeTrue();
-        }
+        //    transferFundsPage.TranferMoneyMessage.Text.StartsWith(
+        //        "$99 was successfully transferred from Account 20 into Account 21"
+        //        , true, CultureInfo.InvariantCulture).Should().BeTrue();
+        //}
     }
 }
 

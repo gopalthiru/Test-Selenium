@@ -1,22 +1,22 @@
 ﻿<Properties StartupConfiguration="{D1A310D4-21DB-4FD6-AA1F-992471388D48}|Unit Tests">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GuiTests/App.config">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GuiTests/PageObjects/MyTests/QALoginPage.cs">
     <Files>
-      <File FileName="GuiTests/AltoroMutualTests.cs" Line="80" Column="50" />
-      <File FileName="GuiTests/PageObjects/LoginPage.cs" Line="36" Column="21" />
+      <File FileName="GuiTests/AltoroMutualTests.cs" Line="54" Column="12" />
       <File FileName="GuiTests/SeleniumHelpers/DriverFactory.cs" Line="54" Column="1" />
-      <File FileName="GuiTests/App.config" Line="20" Column="17" />
+      <File FileName="GuiTests/App.config" Line="8" Column="72" />
+      <File FileName="GuiTests/MyTests.cs" Line="51" Column="46" />
+      <File FileName="GuiTests/Utilities/ConfigurationHelper.cs" Line="24" Column="1" />
+      <File FileName="GuiTests/PageObjects/MyTests/HomePage.cs" Line="40" Column="10" />
+      <File FileName="GuiTests/PageObjects/MyTests/QALoginPage.cs" Line="48" Column="30" />
+      <File FileName="GuiTests/SeleniumHelpers/WebDriverExtensions.cs" Line="38" Column="50" />
+      <File FileName="GuiTests/PageObjects/LoginPage.cs" Line="7" Column="18" />
     </Files>
-    <Pads>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="SeleniumExample" expanded="True" selected="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/gthirumurthy/STUDY/SeleniumExample/GuiTests/PageObjects/MyTests/HomePage.cs" relfile="GuiTests/PageObjects/MyTests/HomePage.cs" line="47" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.GuiTests PreferredExecutionTarget="MonoDevelop.Default" />

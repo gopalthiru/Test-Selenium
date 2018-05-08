@@ -75,6 +75,9 @@
     <Compile Include="SeleniumHelpers\ExtendedRemoteWebDriver.cs" />
     <Compile Include="SeleniumHelpers\SeleniumUtils.cs" />
     <Compile Include="SeleniumHelpers\WebDriverExtensions.cs" />
+    <Compile Include="MyTests.cs" />
+    <Compile Include="PageObjects\MyTests\HomePage.cs" />
+    <Compile Include="PageObjects\MyTests\QALoginPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="chromedriver.exe">
@@ -87,6 +90,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PageObjects\MyTests\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
